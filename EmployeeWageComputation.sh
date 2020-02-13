@@ -4,15 +4,19 @@ echo " ****************************** WELCOME TO EMPLOYEE WAGE COMPUTATION *****
 
 #CONSTANT
 IS_PRESENT=1
+IS_FULL_TIME=2
 EMP_WAGE_RATE_PER_HOUR=20
 
 #GENERATE RANDOM VALUE
-randomCheck=$(( RANDOM % 2 ))
+randomCheck=$(( RANDOM % 3 ))
 
-#CHECK EMPLOYEE IS PRESENT OR ABSENT AND GET EMPLOYEE HOURS
-if [ $IS_PRESENT -eq $randomCheck ]
+#GET EMPLOYEE HOURS 
+if [ $IS_FULL_TIME -eq $randomCheck ]
 then
 	employeeHrs=8
+elif [ $IS_PART_TIME -eq $randomCheck ]
+then
+	employeeHrs=4
 else
 	employeeHrs=0
 fi
