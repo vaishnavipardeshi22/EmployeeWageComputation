@@ -2,22 +2,27 @@
 
 echo " ****************************** WELCOME TO EMPLOYEE WAGE COMPUTATION ****************************** "
 
-#CONSTANT
+# CONSTANT
 IS_PART_TIME=1
 IS_FULL_TIME=2
 EMP_WAGE_RATE_PER_HOUR=20
 NUM_WORKING_DAYS=20
+MAX_HRS_IN_MONTH=100
 
-#VARIABLE
+# VARIABLE
 totalSalary=0
+totalEmpHrs=0
+totalWorkingDays=0
 
-#CALCULATING WAGES FOR MONTH AND TOTAL EMPLOYEE SALARY USING FOR LOOP
-for(( days=1; days<=$NUM_WORKING_DAYS; days++ ))
+# CALCULATING WAGES FOR MONTH AND TOTAL EMPLOYEE SALARY USING WHILE LOOP
+while [[ $totalEmpHrs -lt $MAX_HRS_IN_MONTH && $totalWorkingDays -lt $NUM_WORKING_DAYS ]]
 do
-	#GENERATE RANDOM VALUE
+	((totalWorkingDays++))
+
+	# GENERATE RANDOM VALUE
 	randomCheck=$(( RANDOM % 3 ))
 
-	#CHECK CONDITION AND GET EMPLOYEE HOURS
+	# CHECK CONDITION AND GET EMPLOYEE HOURS
 	case $randomCheck in
 		$IS_FULL_TIME)
 			employeeHrs=8
@@ -30,10 +35,11 @@ do
 			;;
 	esac
 
-	#CALCULATE DAILY WAGE FOR EMPLOYEE
-	salary=$(( employeeHrs * EMP_WAGE_RATE_PER_HOUR ))
+	# CALCULATE TOTAL WORKING HOURS OF EMPLOYEE
+	totalEmpHrs=$(( employeeHrs + totalEmpHrs ))
 
-	#CALCULATE TOTAL SALARY OF EMPLOYEE
-	totalSalary=$(( totalSalary + salary ))
 done
+
+	# CALCULATE TOTAL SALARY OF EMPLOYEE
+	totalSalary=$(( totalEmpHrs * EMP_WAGE_RATE_PER_HOUR ))
 
