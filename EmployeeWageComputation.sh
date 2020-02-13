@@ -2,16 +2,20 @@
 
 echo " ****************************** WELCOME TO EMPLOYEE WAGE COMPUTATION ****************************** "
 
-# CONSTANT
+#CONSTANT
 IS_PRESENT=1
+EMP_WAGE_RATE_PER_HOUR=20
 
-# GENERATE RANDOM VALUE
+#GENERATE RANDOM VALUE
 randomCheck=$(( RANDOM % 2 ))
 
-# CHECK EMPLOYEE IS PRESENT OR ABSENT AND PRINT RESULT
+#CHECK EMPLOYEE IS PRESENT OR ABSENT AND GET EMPLOYEE HOURS
 if [ $IS_PRESENT -eq $randomCheck ]
 then
-	echo " Employee is Present "
+	employeeHrs=8
 else
-	echo " Employee is  Absent"
+	employeeHrs=0
 fi
+
+#CALCULATE DAILY WAGE FOR EMPLOYEE
+salary=$(( employeeHrs * EMP_WAGE_RATE_PER_HOUR ))
