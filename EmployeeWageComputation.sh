@@ -14,6 +14,9 @@ totalSalary=0
 totalWorkHours=0
 totalWorkingDays=0
 
+#DECLARING DICTIONARY
+declare -A empDailyWage
+
 #GET WORK HOURS USING FUNCTION
 function getWorkingHours()
 {
@@ -51,5 +54,6 @@ done
 
 #CALCULATE TOTAL SALARY OF EMPLOYEE
 totalSalary="$( calcDailyWage $totalWorkHours )"
-echo " Daily Wage " ${empDailyWage[@]}
 
+echo " Daily Wage " ${empDailyWage[@]}
+echo " All Keys " ${!empDailyWage[@]}
