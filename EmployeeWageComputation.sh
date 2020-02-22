@@ -15,7 +15,7 @@ totalWorkHours=0
 totalWorkingDays=0
 
 #DECLARING DICTIONARY
-declare -A empDailyWage
+declare -A empDailyWageDictonary
 
 #GET WORK HOURS USING FUNCTION
 function getWorkingHours()
@@ -49,11 +49,11 @@ do
 
 	employeeHrs="$( getWorkingHours $(( RANDOM % 3 )) )"
 	totalWorkHours=$(( totalWorkHours + employeeHrs ))
-	empDailyWage[$totalWorkingDays]="$( calcDailyWage $employeeHrs )"
+	empDailyWageDictonary[$totalWorkingDays]="$( calcDailyWage $employeeHrs )"
 done
 
 #CALCULATE TOTAL SALARY OF EMPLOYEE
 totalSalary="$( calcDailyWage $totalWorkHours )"
 
-echo " Daily Wage " ${empDailyWage[@]}
-echo " All Keys " ${!empDailyWage[@]}
+echo " Daily Wage " ${empDailyWageDictonary[@]}
+echo " All Keys " ${!empDailyWageDictonary[@]}
