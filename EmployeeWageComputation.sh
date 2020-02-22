@@ -3,7 +3,7 @@
 echo " ****************************** WELCOME TO EMPLOYEE WAGE COMPUTATION ****************************** "
 
 #CONSTANT
-IS_PRESENT=1
+IS_PART_TIME=1
 IS_FULL_TIME=2
 EMP_WAGE_RATE_PER_HOUR=20
 
